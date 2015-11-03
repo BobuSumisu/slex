@@ -23,6 +23,9 @@ test: $(TEST_TARGET)
 $(TEST_TARGET): $(TEST_SOURCES) $(TARGET)
 	$(CC) $(CFLAGS) -o $@ $< -lslex
 
+valgrind: $(TEST_TARGET)
+	valgrind --leak-check=full ./$(TEST_TARGET)
+
 clean:
 	rm -f $(TARGET) $(OBJECTS) $(TEST_TARGET)
 

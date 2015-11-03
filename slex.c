@@ -32,6 +32,8 @@ static bool regex_match(const char *pattern, const char *str, regmatch_t *match)
     status = regexec(&regex, str, 0, NULL, 0);
   }
 
+  regfree(&regex);
+
   if(status == 0) {
     return true;
   } else if(status != REG_NOMATCH) {
