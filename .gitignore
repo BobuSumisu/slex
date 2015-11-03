@@ -1,0 +1,3 @@
+*.o
+*.a
+slex_test
